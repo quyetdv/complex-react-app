@@ -19,6 +19,7 @@ import Profile from "./components/Profile"
 import StateContext from "./StateContext"
 import DispatchContext from "./DispatchContext"
 import EditPost from "./components/EditPost"
+import NotFound from "./components/NotFound"
 
 function Main() {
   // useReducer
@@ -66,7 +67,7 @@ function Main() {
       <DispatchContext.Provider value={dispatch}>
         <BrowserRouter>
           <FlashMessage messages={state.flashMessage} />
-          <Header loggedIn={state.loggedIn} />
+          <Header />
           <Switch>
             <Route path="/" exact>
               {state.loggedIn ? <Home /> : <HomeGuest />}
@@ -88,6 +89,9 @@ function Main() {
             </Route>
             <Route path="/terms">
               <Terms />
+            </Route>
+            <Route>
+              <NotFound />
             </Route>
           </Switch>
           <Footer />
