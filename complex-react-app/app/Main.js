@@ -18,6 +18,7 @@ import Profile from "./components/Profile"
 
 import StateContext from "./StateContext"
 import DispatchContext from "./DispatchContext"
+import EditPost from "./components/EditPost"
 
 function Main() {
   // useReducer
@@ -73,8 +74,11 @@ function Main() {
             <Route path="/profile/:username">
               <Profile />
             </Route>
-            <Route path="/post/:id">
+            <Route path="/post/:id" exact>
               <ViewSinglePost />
+            </Route>
+            <Route path="/post/:id/edit" exact>
+              <EditPost />
             </Route>
             <Route path="/create-post">
               <CreatePost />
