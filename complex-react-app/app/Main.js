@@ -15,6 +15,7 @@ import CreatePost from "./components/CreatePost"
 import ViewSinglePost from "./components/ViewSinglePost"
 import FlashMessage from "./components/FlashMessage"
 import Profile from "./components/Profile"
+import Search from "./components/Search"
 
 import StateContext from "./StateContext"
 import DispatchContext from "./DispatchContext"
@@ -30,7 +31,8 @@ function Main() {
       token: localStorage.getItem("complexAppToken"),
       username: localStorage.getItem("complexAppUsername"),
       avatar: localStorage.getItem("complexAppAvatar")
-    }
+    },
+    isSearchOpen: false
   }
 
   function ourReducer(draft, action) {
@@ -44,6 +46,12 @@ function Main() {
         return
       case "flashMessage":
         draft.flashMessage.push(action.value)
+        return
+      case "openSearch":
+        draft.isSearchOpen = true
+        return
+      case "closeSearch":
+        draft.isSearchOpen = false
         return
     }
   }
@@ -94,6 +102,7 @@ function Main() {
               <NotFound />
             </Route>
           </Switch>
+          {state.isSearchOpen ? <Search /> : ""}
           <Footer />
         </BrowserRouter>
       </DispatchContext.Provider>
