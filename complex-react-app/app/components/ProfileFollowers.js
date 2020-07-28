@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import Axios from "axios"
 import { useParams, Link } from "react-router-dom"
 import LoadingIcon from "./LoadingIcon"
+import StateContext from "../StateContext"
 
 function ProfileFollowers() {
+  const appState = useContext(StateContext)
+
   const { username } = useParams()
   const [isLoading, setIsLoading] = useState(true)
   const [posts, setPosts] = useState([])
