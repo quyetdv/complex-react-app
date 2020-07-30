@@ -127,11 +127,6 @@ function Profile() {
             Stop Following <i className="fas fa-user-times"></i>
           </button>
         )}
-        <img className="avatar-small" src={profileData.profileAvatar} />
-        {profileData.profileUsername}
-        <button className="btn btn-primary btn-sm ml-2">
-          Follow <i className="fas fa-user-plus"></i>
-        </button>
       </h2>
 
       <div className="profile-nav nav nav-tabs pt-2 mb-4">
