@@ -116,6 +116,7 @@ function Profile() {
   return (
     <Page title="Profile screen">
       <h2>
+<<<<<<< Updated upstream
         <img className="avatar-small" src={state.profileData.profileAvatar} /> {state.profileData.profileUsername}
         {appState.loggedIn && !state.profileData.isFollowing && appState.user.username !== state.profileData.profileUsername && state.profileData.profileUsername !== "..." && (
           <button onClick={startFollowing} disabled={state.followActionLoading} className="btn btn-primary btn-sm ml-2">
@@ -127,6 +128,13 @@ function Profile() {
             Stop Following <i className="fas fa-user-times"></i>
           </button>
         )}
+=======
+        <img className="avatar-small" src={profileData.profileAvatar} />
+        {profileData.profileUsername}
+        <button className="btn btn-primary btn-sm ml-2">
+          Follow <i className="fas fa-user-plus"></i>
+        </button>
+>>>>>>> Stashed changes
       </h2>
 
       <div className="profile-nav nav nav-tabs pt-2 mb-4">
